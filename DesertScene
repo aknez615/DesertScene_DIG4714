@@ -142,14 +142,14 @@ public class DesertScene : MonoBehaviour
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
-            cube.transform.position = new Vector3(1.5f + (k * 1.1f), 3.9f, 2);
+            cube.transform.position = new Vector3(1.5f + (k * 1.1f), 3.8f, 2);
         }
 
         for (int l = 0; l < 2; l++)
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
-            cube.transform.position = new Vector3(1.5f + (l * 1.1f), 3.9f, 3.5f);
+            cube.transform.position = new Vector3(1.5f + (l * 1.1f), 3.8f, 3.5f);
         }
 
         //creates cubes for level5
@@ -158,8 +158,7 @@ public class DesertScene : MonoBehaviour
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
-            cube.transform.position = new Vector3(2.1f + (k * 1.1f), 5, 3);
+            cube.transform.position = new Vector3(2.1f + (k * 1.1f), 4.9f, 3);
         }
     }
 }
-
