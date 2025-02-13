@@ -1,1 +1,165 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DesertScene : MonoBehaviour
+{
+   
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        InitializePlane();
+        CreateRandomForest();
+        CreatePyramid();
+    }
+
+    void InitializePlane()
+    {
+        // Initializes plane
+        GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        plane.transform.localScale = new Vector3(5, 1, 5);
+
+    }
+
+    void CreateRandomForest()
+    {
+        GameObject cubeParent = new GameObject("cubeParent");
+
+        //creates cubes for forest
+        for (int w = 0; w < 5; w++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(-3.5f + (w * -1.5f), 2, 0);
+
+            float scaleX = UnityEngine.Random.Range(0.5f, 2.0f);
+            float scaleY = UnityEngine.Random.Range(0.5f, 2.0f);
+            float scaleZ = UnityEngine.Random.Range(0.5f, 2.0f);
+            cube.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+            cube.AddComponent<Rigidbody>();
+        }
+    }
+
+    void CreatePyramid()
+    {
+        GameObject cubeParent = new GameObject("cubeParent");
+
+        //creates cubes for level1
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(i * 1.1f, 0.5f, 0);
+
+            /*Instantiate(cube1, new Vector3(0, 5, 5), Quaternion.identity);*/
+        }
+
+        for (int j = 0; j < 5; j++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(j * 1.1f, 0.5f, 1.1f);
+        }
+
+        for (int k = 0; k < 5; k++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(k * 1.1f, 0.5f, 2.1f);
+        }
+
+        for (int l = 0; l < 5; l++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(l * 1.1f, 0.5f, 3.1f);
+        }
+
+        for (int o = 0; o < 5; o++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(o * 1.1f, 0.5f, 4.1f);
+        }
+
+        //creates cubes for level2
+
+        for (int k = 0; k < 4; k++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(0.5f + (k * 1.1f), 1.6f, 0.5f);
+        }
+
+        for (int l = 0; l < 4; l++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(0.5f + (l * 1.1f), 1.6f, 1.5f);
+        }
+
+        for (int o = 0; o < 4; o++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(0.5f + (o * 1.1f), 1.6f, 2.5f);
+        }
+        
+        for (int o = 0; o < 4; o++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(0.5f + (o * 1.1f), 1.6f, 3.5f);
+        }
+
+        //creates cubes for level3
+
+        for (int k = 0; k < 3; k++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(1 + (k * 1.1f), 2.7f, 1);
+        }
+
+        for (int l = 0; l < 3; l++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(1 + (l * 1.1f), 2.7f, 2.5f);
+        }
+
+        for (int o = 0; o < 3; o++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(1 + (o * 1.1f), 2.7f, 3.5f);
+        }
+
+        //creates cubes for level4
+
+        for (int k = 0; k < 2; k++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(1.5f + (k * 1.1f), 3.9f, 2);
+        }
+
+        for (int l = 0; l < 2; l++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(1.5f + (l * 1.1f), 3.9f, 3.5f);
+        }
+
+        //creates cubes for level5
+
+        for (int k = 0; k < 1; k++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.parent = cubeParent.transform;
+            cube.transform.position = new Vector3(2.1f + (k * 1.1f), 5, 3);
+        }
+    }
+}
 
