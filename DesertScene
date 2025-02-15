@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DesertScene : MonoBehaviour
 {
-   
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +17,9 @@ public class DesertScene : MonoBehaviour
         // Initializes plane
         GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
         plane.transform.localScale = new Vector3(5, 1, 5);
+        Renderer renderer = plane.GetComponent<Renderer>();
+        renderer.material = new Material(Shader.Find("Standard"));
+        renderer.material.color = Color.red;
 
     }
 
@@ -27,17 +28,19 @@ public class DesertScene : MonoBehaviour
         GameObject cubeParent = new GameObject("cubeParent");
 
         //creates cubes for forest
-        for (int w = 0; w < 5; w++)
+        for (int w = 0; w < 6; w++)
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
-            cube.transform.position = new Vector3(-3.5f + (w * -1.5f), 2, 0);
+            cube.transform.position = new Vector3(-3.5f + (w * -1.5f), 2, Random.Range(0.5f, 4.0f));
 
             float scaleX = UnityEngine.Random.Range(0.5f, 2.0f);
             float scaleY = UnityEngine.Random.Range(0.5f, 2.0f);
-            float scaleZ = UnityEngine.Random.Range(0.5f, 2.0f);
+            float scaleZ = UnityEngine.Random.Range(0.5f, 3.0f);
             cube.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
             cube.AddComponent<Rigidbody>();
+
+            cube.GetComponent<Renderer>().material.color = Color.green;
         }
     }
 
@@ -51,6 +54,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(i * 1.1f, 0.5f, 0);
+            cube.GetComponent<Renderer>().material.color = Color.blue;
 
             /*Instantiate(cube1, new Vector3(0, 5, 5), Quaternion.identity);*/
         }
@@ -60,6 +64,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(j * 1.1f, 0.5f, 1.1f);
+            cube.GetComponent<Renderer>().material.color = Color.blue;
         }
 
         for (int k = 0; k < 5; k++)
@@ -67,6 +72,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(k * 1.1f, 0.5f, 2.1f);
+            cube.GetComponent<Renderer>().material.color = Color.blue;
         }
 
         for (int l = 0; l < 5; l++)
@@ -74,6 +80,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(l * 1.1f, 0.5f, 3.1f);
+            cube.GetComponent<Renderer>().material.color = Color.blue;
         }
 
         for (int o = 0; o < 5; o++)
@@ -81,6 +88,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(o * 1.1f, 0.5f, 4.1f);
+            cube.GetComponent<Renderer>().material.color = Color.blue;
         }
 
         //creates cubes for level2
@@ -90,6 +98,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(0.5f + (k * 1.1f), 1.6f, 0.5f);
+            cube.GetComponent<Renderer>().material.color = Color.gray;
         }
 
         for (int l = 0; l < 4; l++)
@@ -97,6 +106,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(0.5f + (l * 1.1f), 1.6f, 1.5f);
+            cube.GetComponent<Renderer>().material.color = Color.gray;
         }
 
         for (int o = 0; o < 4; o++)
@@ -104,13 +114,15 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(0.5f + (o * 1.1f), 1.6f, 2.5f);
+            cube.GetComponent<Renderer>().material.color = Color.gray;
         }
-        
+
         for (int o = 0; o < 4; o++)
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(0.5f + (o * 1.1f), 1.6f, 3.5f);
+            cube.GetComponent<Renderer>().material.color = Color.gray;
         }
 
         //creates cubes for level3
@@ -120,6 +132,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(1 + (k * 1.1f), 2.7f, 1);
+            cube.GetComponent<Renderer>().material.color = Color.yellow;
         }
 
         for (int l = 0; l < 3; l++)
@@ -127,6 +140,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(1 + (l * 1.1f), 2.7f, 2.5f);
+            cube.GetComponent<Renderer>().material.color = Color.yellow;
         }
 
         for (int o = 0; o < 3; o++)
@@ -134,6 +148,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(1 + (o * 1.1f), 2.7f, 3.5f);
+            cube.GetComponent<Renderer>().material.color = Color.yellow;
         }
 
         //creates cubes for level4
@@ -159,6 +174,7 @@ public class DesertScene : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.parent = cubeParent.transform;
             cube.transform.position = new Vector3(2.1f + (k * 1.1f), 4.9f, 3);
+            cube.GetComponent<Renderer>().material.color = Color.blue;
         }
     }
 }
